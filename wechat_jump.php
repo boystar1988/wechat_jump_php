@@ -9,6 +9,12 @@ class wechatJumpApp
 {
 
     /**
+     * 应用名字
+     * @var string
+     */
+    public $appName = 'wechat_jump';
+
+    /**
      * 手机截图路径
      * @var string
      */
@@ -74,8 +80,9 @@ class wechatJumpApp
      */
     public function init()
     {
-        if(file_exists('config.php')){
-            $config = include_once 'config.php';
+        $configFile = '../config.php';
+        if(file_exists($configFile)){
+            $config = include $configFile;
             $config = $config[$this->appName];
             $reflectionClass = new ReflectionClass($this);
             foreach($config as $k=>$v){
