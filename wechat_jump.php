@@ -7,11 +7,6 @@
  */
 class wechatJumpApp
 {
-    /**
-     * 应用名称
-     * @var string
-     */
-    public $appName = 'wechat_jump';
 
     /**
      * 手机截图路径
@@ -26,7 +21,7 @@ class wechatJumpApp
     public $screenName = 'autojump.png';
 
     /**
-     * 棋子底座高度的1/2
+     * 棋子底座1/2高度
      * @var int
      */
     public $pieceBaseHeightHalf = 16;
@@ -38,19 +33,19 @@ class wechatJumpApp
     public $pieceBodyWidth = 64;
 
     /**
-     * 按压时间，请自己根据实际情况调节
+     * 按压时间系数，请自己根据实际情况调节
      * @var float
      */
     public $pressCoefficient = 1.45;
 
 	/**
-     * 精度（太小影响性能）
+     * 当前棋子位置计算精度,1-10(1精度最高,但是耗性能)
      * @var int
      */
     public $pieceAccuracy = 5;
 
     /**
-     * 精度（太小影响性能）
+     * 下一跳棋盘位置计算精度(大小影响准确率,建议值1)
      * @var int
      */
     public $nextJumpAccuracy = 1;

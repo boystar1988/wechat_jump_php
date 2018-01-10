@@ -1,14 +1,14 @@
 # 微信跳一跳脚本精灵PHP版本
 
 ### 一、安装adb驱动
-#### [MacOs]
-`brew cask install android-platform-tools`
-
 #### [Windows]
 ##### (1)手机驱动
 `http://dl.adbdriver.com/upload/adbdriver.zip`
 ##### (2)adb环境
 `http://adbshell.com/upload/adb.zip`
+
+#### [MacOs]
+`brew cask install android-platform-tools`
 
 ### 二、执行
 ##### 命令行模式
