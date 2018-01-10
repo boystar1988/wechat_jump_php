@@ -18,4 +18,4 @@
 >利用手机端截图,拉取到本地进行图像分析,通过计算棋子和下一跳中心的距离,从而算出需要按压的时间,
 通过adb shell进行模拟按压
 
-![Alt text](https://github.com/boystar1988/wechat_jump_php/blob/master/autojump.png "微信跳一跳精灵PHP")
+![Alt text](https://github.com/boystar1988/wechat_jump_php/blob/master/example.png "微信跳一跳精灵PHP")

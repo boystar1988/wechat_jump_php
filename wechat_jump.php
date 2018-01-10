@@ -70,7 +70,7 @@ class wechatJumpApp
                 sleep(1);
             }
         }catch (Exception $e){
-            echo $this->colorize($e->getMessage(),"FAILURE").PHP_EOL;
+            echo "[".date("H:i:s")."] ".$this->colorize($e->getMessage(),"FAILURE").PHP_EOL;
             exit;
         }
     }
@@ -128,19 +128,19 @@ class wechatJumpApp
         if(file_exists($this->screenName)){
             unlink($this->screenName);
         }
-        echo "[".date("H:i:s")."] 截屏中...".PHP_EOL;
+        echo "[".date("H:i:s")."] 手机截屏...".PHP_EOL;
         shell_exec("adb shell screencap -p ".$path);
+        echo "[".date("H:i:s")."] 拉取到本地...".PHP_EOL;
         shell_exec("adb pull ".$this->screenPath.$this->screenName." .");
         if(!file_exists($this->screenName)){
-            throw new Exception("截图失败");
+            throw new Exception("拉取失败");
         }
-        //Todo: 截取分数部分
-        $screen = imagecreatefrompng($this->screenName);
-        $after = imagecreatetruecolor($this->data['width']/3,120);
-        imagecopy($after,$screen,0,0,0,180,$this->data['width']/3,300);
-        imagedestroy($screen);
-        imagepng($after,'autojump_score.png');
-        echo "[".date("H:i:s")."] 截屏完成...".PHP_EOL;
+//        //Todo: 截取分数部分
+//        $screen = imagecreatefrompng($this->screenName);
+//        $after = imagecreatetruecolor($this->data['width']/3,120);
+//        imagecopy($after,$screen,0,0,0,180,$this->data['width']/3,300);
+//        imagedestroy($screen);
+//        imagepng($after,'autojump_score.png');
     }
 
     /**
@@ -234,7 +234,6 @@ class wechatJumpApp
             }
         }
         $lastColor = $this->getColor($img,$boardX,$h);
-        echo "[".date("H:i:s")."] 计算棋盘坐标阶段1".PHP_EOL;
 
         //从上顶点往下+274的位置开始向上找颜色与上顶点一样的点，为下顶点(对纯色平面有效)
         //取开局时最大的方块的上下顶点距离
@@ -250,7 +249,6 @@ class wechatJumpApp
             }
         }
         $boardY = intval(($h+$k)/2);
-        echo "[".date("H:i:s")."] 计算棋盘坐标阶段2".PHP_EOL;
 
         //上一跳命中中间，则下一跳中心会出现r245 g245 b245的bug
         for($l=$h;$l<$h+200;$l++){
@@ -328,7 +326,7 @@ class wechatJumpApp
             default:
                 throw new Exception("Invalid status: " . $status);
         }
-        echo chr(27) . "$out" . "$text" . chr(27) . "[0m" .PHP_EOL;
+        return chr(27) . "$out" . "$text" . chr(27) . "[0m" ;
     }
 
 }
