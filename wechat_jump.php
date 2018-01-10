@@ -139,7 +139,6 @@ class wechatJumpApp
         imagedestroy($screen);
         imagepng($after,'autojump_score.png');
         echo "[".date("H:i:s")."] 截屏完成...".PHP_EOL;
-        exit;
     }
 
     /**
